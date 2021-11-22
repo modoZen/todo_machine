@@ -1,10 +1,14 @@
+import './TodoList.css'
+
 function TodoList(props) {
     const { children } = props;
     return (
         <section>
-            {children}
+            <ul>
+                {children}
+            </ul>
         </section>
     )
 }
 
-export { TodoList}
+export { TodoList }
