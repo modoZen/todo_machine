@@ -12,6 +12,7 @@ function TodoProvider(props) {
       } = useLocalStorage('TODOS_V1',[]);
     
       const [ searhValue, setSearhValue ] = React.useState('');
+      const [ openModal, setOpenModal ] = React.useState(false);
     
       const completedTodo = todos.filter(todo=>todo.completed).length;
       const totalTodos = todos.length;
@@ -42,6 +43,8 @@ function TodoProvider(props) {
             searchedTodos, 
             completeTodo, 
             deleteTodo, 
+            openModal,
+            setOpenModal
         }}>
             {props.children}
         </TodoContext.Provider>
