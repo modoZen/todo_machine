@@ -1,3 +1,5 @@
+import { BiCheckCircle } from "react-icons/bi";
+import { TiDelete } from "react-icons/ti";
 import './TodoItem.css'
 
 function TodoItem(props) {
@@ -6,15 +8,23 @@ function TodoItem(props) {
     
     return (
         <li className="TodoItem">
-            <span 
+            {/* <span 
             className={`Icon Icon-check ${completed && 'Icon-check--active'}`}
             onClick={onComplete}
-            >✓</span>
+            >✓</span> */}
+            <BiCheckCircle 
+            onClick={onComplete}
+            className={`Icon Icon-check ${completed && 'Icon-check--active'}`}
+            />
             <p  className={`TodoItem-p ${completed && 'TodoItem-p--complete'}`}>{text}</p>
-            <span 
+            {/* <span 
             className="Icon Icon-delete"
             onClick={onDelete}
-            >X</span>
+            >X</span> */}
+            <TiDelete
+            className="Icon Icon-delete"
+            onClick={onDelete}
+            />
         </li>
     )
 }
