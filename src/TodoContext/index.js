@@ -18,6 +18,16 @@ function TodoProvider(props) {
       const totalTodos = todos.length;
       const searchedTodos = todos.filter(todo=>todo.text.toLowerCase().includes(searhValue.toLowerCase()));
     
+      const addTodo = (text)=>{
+        console.log(text);
+        const newTodos = [...todos];
+        newTodos.push({
+          completed: false,
+          text
+        })
+        saveTodos(newTodos);
+        setOpenModal(false);
+      }
       const completeTodo = (text)=>{
         const todoIndex = todos.findIndex(todo=>todo.text===text);
         const newTodos = [...todos];
@@ -41,6 +51,7 @@ function TodoProvider(props) {
             searhValue,     
             setSearhValue,   
             searchedTodos, 
+            addTodo,
             completeTodo, 
             deleteTodo, 
             openModal,
