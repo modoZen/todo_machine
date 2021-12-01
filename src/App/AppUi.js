@@ -2,6 +2,7 @@ import React from "react";
 import { TodoContext } from "../TodoContext";
 import { TodoCounter } from "../TodoCounter";
 import { TodoSearch } from "../TodoSearch";
+import { TodoHeader } from "../TodoHeader"
 import { TodoList } from "../TodoList";
 import { TodoItem } from "../TodoItem";
 import { CreateTodoButton } from "../CreateTodoButton";
@@ -13,11 +14,30 @@ import { TodosError } from "../TodosError";
 import { EmptyTodos } from "../EmptyTodos";
 
 function AppUI() {
-    const {error, loading, searchedTodos, completeTodo, deleteTodo, openModal} = React.useContext(TodoContext);
+    const {
+        error, 
+        loading, 
+        searchedTodos, 
+        completeTodo, 
+        deleteTodo, 
+        openModal,
+        completedTodo,
+        totalTodos, 
+        searhValue,
+        setSearhValue,
+    } = React.useContext(TodoContext);
     return (
         <React.Fragment>
-            <TodoCounter />
-            <TodoSearch />
+            <TodoHeader>
+                <TodoCounter 
+                completedTodo={completedTodo}
+                totalTodos={totalTodos}
+                />
+                <TodoSearch 
+                searhValue={searhValue}
+                setSearhValue={setSearhValue}
+                />
+            </TodoHeader>
             <TodoList>
                 {error && <TodosError />}
                 {loading && <TodoLoading />}
