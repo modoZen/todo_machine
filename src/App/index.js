@@ -46,11 +46,25 @@ function App() {
         <TodoList 
           error={error}
           loading={loading}
+          totalTodos={totalTodos}
           searchedTodos={searchedTodos}
+          searchText={searhValue}
           onError={()=><TodosError />}
           onLoading={()=><TodoLoading />}
           onEmpty={()=><EmptyTodos />}
-          render={todo=>(
+          onEmptySearchResults={
+            (searchText) => (<p>No hay resultado para {searchText} </p>
+          )}
+          // render={todo=>(
+          //   <TodoItem 
+          //     key={todo.text} 
+          //     todo={todo}
+          //     onComplete={()=>completeTodo(todo.text)}
+          //     onDelete={()=>deleteTodo(todo.text)}
+          //   />
+          // )}
+        >
+          {todo=>(
             <TodoItem 
               key={todo.text} 
               todo={todo}
@@ -58,7 +72,9 @@ function App() {
               onDelete={()=>deleteTodo(todo.text)}
             />
           )}
-        />
+
+        </TodoList>
+        
 
         {/* <TodoList>
             {error && <TodosError />}
