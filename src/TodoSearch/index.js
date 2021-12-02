@@ -1,7 +1,7 @@
 import React from 'react';
 import './TodoSearch.css'
 
-function TodoSearch({searhValue, setSearhValue}) {
+function TodoSearch({searhValue, setSearhValue, loading}) {
 
     const onSearchValueChange = (event) =>{setSearhValue(event.target.value);}
     return (
@@ -10,6 +10,7 @@ function TodoSearch({searhValue, setSearhValue}) {
         placeholder="gatito" 
         value={searhValue}
         onChange={onSearchValueChange}
+        disabled={loading}
         />
     )
 }
