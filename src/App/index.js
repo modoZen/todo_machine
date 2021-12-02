@@ -42,7 +42,25 @@ function App() {
             setSearhValue={setSearhValue}
             />
         </TodoHeader>
-        <TodoList>
+
+        <TodoList 
+          error={error}
+          loading={loading}
+          searchedTodos={searchedTodos}
+          onError={()=><TodosError />}
+          onLoading={()=><TodoLoading />}
+          onEmpty={()=><EmptyTodos />}
+          render={todo=>(
+            <TodoItem 
+              key={todo.text} 
+              todo={todo}
+              onComplete={()=>completeTodo(todo.text)}
+              onDelete={()=>deleteTodo(todo.text)}
+            />
+          )}
+        />
+
+        {/* <TodoList>
             {error && <TodosError />}
             {loading && <TodoLoading />}
             {(!loading && !searchedTodos.length) && <EmptyTodos />}
@@ -54,7 +72,7 @@ function App() {
                 onDelete={()=>deleteTodo(todo.text)}
                 />
             ))}
-        </TodoList>
+        </TodoList> */}
         {openModal && (
         <Modal>
             <TodoForm 
