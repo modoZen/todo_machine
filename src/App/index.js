@@ -11,7 +11,7 @@ import { TodoForm } from "../TodoForm";
 import { TodoLoading } from "../TodosLoading";
 import { TodosError } from "../TodosError";
 import { EmptyTodos } from "../EmptyTodos";
-import { ChangeAlertWithStorageListener } from "../ChangeAlert";
+import { ChangeAlert } from "../ChangeAlert";
 // import './App.css';
 
 
@@ -109,7 +109,7 @@ function App() {
         setOpenModal={setOpenModal}
         canChange={canChange}
         />
-        <ChangeAlertWithStorageListener
+        <ChangeAlert
         sincronizeTodos={sincronizeTodos}
         setCanChange={setCanChange}
         />
