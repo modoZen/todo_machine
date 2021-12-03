@@ -1,7 +1,7 @@
 import React from 'react';
 import './CreateTodoButton.css'
 
-function CreateTodoButton({setOpenModal}) {
+function CreateTodoButton({setOpenModal,canChange}) {
     const onClickButton = () =>{
         setOpenModal(prevState=>!prevState);
     }
@@ -10,6 +10,7 @@ function CreateTodoButton({setOpenModal}) {
         <button 
         className="CreateTodoButton"
         onClick={onClickButton}
+        disabled={!canChange}
         >+</button>
     )
 }

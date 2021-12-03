@@ -29,6 +29,9 @@ function App() {
     setSearhValue,
     setOpenModal,
     addTodo,
+    sincronizeTodos,
+    canChange,
+    setCanChange,
   } = useTodos();
   
   return (
@@ -73,6 +76,7 @@ function App() {
               todo={todo}
               onComplete={()=>completeTodo(todo.text)}
               onDelete={()=>deleteTodo(todo.text)}
+              canChange={canChange}
             />
           )}
 
@@ -103,8 +107,12 @@ function App() {
         
         <CreateTodoButton 
         setOpenModal={setOpenModal}
+        canChange={canChange}
         />
-        <ChangeAlertWithStorageListener />
+        <ChangeAlertWithStorageListener
+        sincronizeTodos={sincronizeTodos}
+        setCanChange={setCanChange}
+        />
     </React.Fragment>
   );
 }
