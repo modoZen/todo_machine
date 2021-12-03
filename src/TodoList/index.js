@@ -9,7 +9,7 @@ function TodoList(props) {
             {(Boolean(props.totalTodos) && !props.searchedTodos.length) && props.onEmptySearchResults(props.searchText)}
 
             <ul>
-                {!props.loading && props.searchedTodos.map(props.render || props.children)}
+                {(!props.loading && !props.error) && props.searchedTodos.map(props.render || props.children)}
             </ul>
         </section>
     )
