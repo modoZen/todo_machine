@@ -8,8 +8,6 @@ function useTodos() {
         sincronizeItem: sincronizeTodos,
         loading,
         error,
-        canChange,
-        setCanChange,
       } = useLocalStorage('TODOS_V1',[]);
     
       const [ searhValue, setSearhValue ] = React.useState('');
@@ -30,21 +28,17 @@ function useTodos() {
         setOpenModal(false);
       }
       const completeTodo = (text)=>{
-        if(canChange){
-          const todoIndex = todos.findIndex(todo=>todo.text===text);
-          const newTodos = [...todos];
-          newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
-          saveTodos(newTodos);
-        }
+        const todoIndex = todos.findIndex(todo=>todo.text===text);
+        const newTodos = [...todos];
+        newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
+        saveTodos(newTodos);
       }
     
       const deleteTodo = (text) =>{
-        if(canChange){
-          const todoIndex = todos.findIndex(todo=>todo.text===text);
-          const newTodos = [...todos];
-          newTodos.splice(todoIndex, 1);
-          saveTodos(newTodos);
-        }
+        const todoIndex = todos.findIndex(todo=>todo.text===text);
+        const newTodos = [...todos];
+        newTodos.splice(todoIndex, 1);
+        saveTodos(newTodos);
       }
 
     return {
@@ -61,8 +55,6 @@ function useTodos() {
       openModal,
       setOpenModal,
       sincronizeTodos,
-      canChange,
-      setCanChange,
     }
 }
 

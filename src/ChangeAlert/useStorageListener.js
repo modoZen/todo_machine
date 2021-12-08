@@ -1,13 +1,12 @@
 import React from "react";
 
-function useStorageListener(sincronizeTodos,setCanChange) {
+function useStorageListener(sincronizeTodos) {
     const [storageChange, setStorageChange ] = React.useState(false);
 
     // window.addEventListener('storage', (change)=>{
     //     if(change.key === 'TODOS_V1'){
     //         console.info('Hubo cambios en TODOS_V1');
     //         setStorageChange(true);
-    //         setCanChange(false);
     //     }
     // });
 
@@ -16,7 +15,6 @@ function useStorageListener(sincronizeTodos,setCanChange) {
           if (change.key === "TODOS_V1") {
             console.log("Hubo cambios en TODOS_V1");
             setStorageChange(true);
-            setCanChange(false);
           }
         };
     

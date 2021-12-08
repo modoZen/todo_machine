@@ -2,9 +2,9 @@ import React from "react";
 import './ChangeAlert.css'
 import { useStorageListener } from "./useStorageListener";
 
-function ChangeAlert({ sincronizeTodos, setCanChange }) {
+function ChangeAlert({ sincronizeTodos }) {
 
-    const { show , toggleShow } = useStorageListener(sincronizeTodos,setCanChange);
+    const { show , toggleShow } = useStorageListener(sincronizeTodos);
 
     if(show){
         return (
